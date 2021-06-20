@@ -8,11 +8,11 @@ app.use((req,res,next)=>{
 })
 app.route('/name')
     .get((req,res)=>{
-        let {firstname,lastname} = req.query
+        let {first:firstname,last:lastname} = req.query
         res.json({name:`${firstname} ${lastname}`})
     })
     .post((req,res)=>{
-        let {firstname,lastname} = req.query
+        let {first:firstname,last:lastname} = req.query
         res.json({name:`${firstname} ${lastname}`})
     })
 
