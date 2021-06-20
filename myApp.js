@@ -5,6 +5,7 @@ app.get('/',(req,res)=>{
     res.sendFile(`${__dirname}/views/index.html`)
 })
 app.get('/',(req,res)=>{res.send('Hello Express')})
+app.get('/json',(req,res)=>res.json({message:process.env.MESSAGE_STYLE}))
 app.get('/json',(req,res)=>{
     let messageStyle = process.env.MESSAGE_STYLE || 'lowercase'
     let messageCase = {
