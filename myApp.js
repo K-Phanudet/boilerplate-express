@@ -1,10 +1,23 @@
 var express = require('express');
 var app = express();
+const name =[]
 app.use('/public',express.static(__dirname+ '/public'));
 app.use((req,res,next)=>{
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next()
 })
+app.route('/name')
+    .get((req,res)=>{
+        let {firstname,lastname} = req.query
+        res.json({name:`${firstname} ${lastname}`})
+    })
+    .post((req,res)=>{
+        let {firstname,lastname} = req.query
+        name.push(`${firstname} ${lastname}`)
+    })
+
+
+
 app.get('/:word/echo',(req,res)=>{
     let {word} = req.params
     res.json({echo:word})
