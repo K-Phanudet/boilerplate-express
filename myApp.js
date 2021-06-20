@@ -5,6 +5,14 @@ app.get('/',(req,res)=>{
     res.sendFile(`${__dirname}/views/index.html`)
 })
 app.get('/',(req,res)=>{res.send('Hello Express')})
+app.get('/json',(req,res)=>{
+    let messageStyle = process.env.MESSAGE_STYLE || 'lowercase'
+    let messageCase = {
+        lowercase :(msg)=>msg.toLowerCase(),
+        uppercase :(msg)=>msg.toUpperCase(),
+    }
+    res.json({message:messageCase[messageStyle]("Hello json")})
+})
 app.get('/json',(req,res)=>res.json({message:"Hello json"}))
 
 
