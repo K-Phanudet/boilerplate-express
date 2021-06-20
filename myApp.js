@@ -13,7 +13,7 @@ app.route('/name')
     })
     .post((req,res)=>{
         let {firstname,lastname} = req.query
-        name.push(`${firstname} ${lastname}`)
+        res.json({name:`${firstname} ${lastname}`})
     })
 
 
