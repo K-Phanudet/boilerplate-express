@@ -5,6 +5,10 @@ app.use((req,res,next)=>{
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next()
 })
+app.get('/:word/echo',(req,res)=>{
+    let {word} = req.params
+    res.json({echo:word})
+})
 app.get('/now',
     (req,res,next)=>{
         req.time = new Date().toString()
